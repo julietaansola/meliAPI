@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+import Carousel from "./Carousel";
+
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			items: [],
+		};
+	}
+
+	async componentDidMount() {
+		const search = await fetch(
+			"https://api.mercadolibre.com/sites/MLA/search?q=FUNKO&limit=8"
+		);
+		const searchJson = await search.json();
+		const result = searchJson.results;
+		console.log(result);
+		this.setState({
+			items: result,
+		});
+	}
+
+	render() {
+		return (
+			<div>
+				<Carousel items={this.state.items} title="Basado en tu ultima visita" />
+			</div>
+		);
+	}
 }
-
 export default App;

@@ -1,0 +1,31 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.flex {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.card {
+	width: 150px;
+	min-height: 200px;
+	margin: 2px 15px;
+	background-color: #fff;
+	color: #333;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.description {
+	text-align: center;
+	border-top: 1px solid gray;
+}
+.card:hover {
+	transform: translateY(15px);
+}
+.price {
+	font-weight: 800;
+}
