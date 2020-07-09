@@ -8,7 +8,8 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<Carousel items={this.props.items} title="Basado en tu ultima visita" />
+				<Carousel title="busqueda..." />
+				<Carousel title="Basado en tu ultima visita" />
 			</div>
 		);
 	}
